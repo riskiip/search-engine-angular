@@ -1,0 +1,39 @@
+.search-content {
+  position: relative;
+  width: 100%;
+
+  input[type=text] {
+    width: 95%;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 40px;
+    font-size: 16px;
+    padding: 12px 40px;
+  }
+
+  div.right-icon {
+    position: absolute;
+    right: 45px;
+    margin-right: 10px;
+    top: 27%;
+    font-size: 21px;
+    color: #5994f5;
+
+    .search-icon {
+      font-size: 20px;
+    }
+  }
+
+  div.left-icon {
+    position: absolute;
+    left: 15px;
+    margin-right: 10px;
+    top: 27%;
+    font-size: 21px;
+    color: #9aa0a6;
+
+    .search-icon {
+      font-size: 20px;
+    }
+  }
+}

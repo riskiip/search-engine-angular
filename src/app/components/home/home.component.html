@@ -13,8 +13,8 @@
     <img src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="logo">
 
     <div class="search-box">
-      <form>
-        <app-search></app-search>
+      <form #form="ngForm" (ngSubmit)="search(form)">
+        <app-search rightIcon="false"></app-search>
       </form>
     </div>
 

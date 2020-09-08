@@ -11,9 +11,10 @@ export interface Url {
   template: string;
 }
 export interface Queries {
-  request?: (RequestEntity)[] | null;
+  request?: (RequestEntityOrNextPageEntity)[] | null;
+  nextPage?: (RequestEntityOrNextPageEntity)[] | null;
 }
-export interface RequestEntity {
+export interface RequestEntityOrNextPageEntity {
   title: string;
   totalResults: string;
   searchTerms: string;
@@ -26,12 +27,6 @@ export interface RequestEntity {
 }
 export interface Context {
   title: string;
-  facets?: ((EntityOrFacetsEntityEntity)[] | null)[] | null;
-}
-export interface EntityOrFacetsEntityEntity {
-  anchor: string;
-  label: string;
-  label_with_op: string;
 }
 export interface SearchInformation {
   searchTime: number;
@@ -47,38 +42,48 @@ export interface ItemsEntity {
   displayLink: string;
   snippet: string;
   htmlSnippet: string;
-  cacheId: string;
+  cacheId?: string | null;
   formattedUrl: string;
   htmlFormattedUrl: string;
   pagemap: Pagemap;
-  mime?: string | null;
-  fileFormat?: string | null;
-  labels?: (LabelsEntity)[] | null;
 }
 export interface Pagemap {
   cse_thumbnail?: (CseThumbnailEntity)[] | null;
-  metatags?: (MetatagsEntity)[] | null;
   cse_image?: (CseImageEntity)[] | null;
+  hcard?: (HcardEntity)[] | null;
+  webpage?: (WebpageEntity)[] | null;
 }
 export interface CseThumbnailEntity {
   src: string;
   width: string;
   height: string;
 }
-export interface MetatagsEntity {
-  moddate?: string | null;
-  creationdate?: string | null;
-  creator?: string | null;
-  fullbanner?: string | null;
-  producer?: string | null;
-  originator?: string | null;
-  progid?: string | null;
-}
 export interface CseImageEntity {
   src: string;
 }
-export interface LabelsEntity {
+export interface HcardEntity {
+  url_text?: string | null;
+  bday: string;
+  fn: string;
+  nickname: string;
+  logo?: string | null;
+  category: string;
+  url?: string | null;
+  note?: string | null;
+  label?: string | null;
+}
+export interface WebpageEntity {
+  image: string;
+  isfamilyfriendly: string;
+  keywords: string;
+  inlanguage: string;
+  lastreviewed: string;
+  sourceorganization: string;
+  description: string;
+  datecreated: string;
+  url: string;
+  contentrating: string;
+  datemodified: string;
+  maincontentofpage: string;
   name: string;
-  displayName: string;
-  label_with_op: string;
 }

@@ -1,26 +1,31 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environment";
-import { GoogleResponse } from "../models/GoogleResponse.model";
-import { Observable } from "rxjs";
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {GoogleResponse} from '../models/GoogleResponse.model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root'
 })
 export class SearchService {
-  api_key: string = environment.API_KEY;
-  cx_key: string = environment.CX_KEY;
-  server_url: string = environment.SERVER_URL;
+  private API_KEY = environment.API_KEY;
+  private CONTEXT_KEY = environment.CONTEXT_KEY;
+  private url = 'https://www.googleapis.com/customsearch/v1';
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
   getSearchData(searchTerm: string): Observable<GoogleResponse> {
-    return this.http.get<GoogleResponse>(`${this.server_url}`, {
+    return this.httpClient.get<GoogleResponse>(`${this.url}`, {
       params: {
-        key: this.api_key,
-        cx: this.cx_key,
-        q: searchTerm,
-      },
+        key: this.API_KEY,
+        cx: this.CONTEXT_KEY,
+        q: searchTerm
+      }
     });
+  }
+
+  printHello() {
+    return 'HELLO';
   }
 }

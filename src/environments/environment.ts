@@ -4,9 +4,8 @@
 
 export const environment = {
   production: false,
-  SERVER_URL: 'https://www.googleapis.com/customsearch/v1',
-  API_KEY: 'AIzaSyCee290_OoLh6tiNIKOp4D1Nl7HgZGZ0Lk',
-  CX_KEY: 'e7984a1878390959b'
+  API_KEY : 'AIzaSyCp2aOEqneTIbVCf4uepOXYqfeoH7ILLnM',
+  CONTEXT_KEY : '308824764a7682b63'
 };
 
 /*

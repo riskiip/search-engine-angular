@@ -1,5 +1,4 @@
 <div class="home-container">
-  <!-- header section -->
   <header>
     <a href="//gmail.com">Gmail</a>
     <a href="//google.com/images">Images</a>
@@ -7,20 +6,20 @@
     <button>Sign in</button>
   </header>
 
-
-  <!-- main section  -->
   <main>
-    <img src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="logo">
-
+    <img alt="logo" src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
     <div class="search-box">
       <form #form="ngForm" (ngSubmit)="search(form)">
-        <app-search rightIcon="false"></app-search>
+        <app-search iconRight="false"></app-search>
       </form>
+
     </div>
 
-    <div class="gbutton">
-      <button type="button">Google search</button>
-      <button>I'm feeling lucky</button>
+    <div class="g-buttons">
+      <button (click)="search(form)" type="button">Google Search</button>
+      <button>I'm Feeling Lucky</button>
     </div>
   </main>
+
+
 </div>

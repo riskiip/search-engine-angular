@@ -1,7 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GoogleResponse } from 'src/app/models/GoogleResponse.model';
-import { Subscription } from 'rxjs';
-import { SearchService } from 'src/app/services/search.service';
+import {Component, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
+import {SearchService} from '../../services/search.service';
+import {NgForm} from '@angular/forms';
+import {GoogleResponse} from '../../models/GoogleResponse.model';
+import {Subscription} from 'rxjs';
+
 
 @Component({
   selector: 'app-results',
@@ -10,26 +13,30 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class ResultsComponent implements OnInit {
   results: GoogleResponse;
-  subs: Subscription[] = [];
   term;
+  subs: Subscription[] = [];
 
-  constructor(private searchService: SearchService) { }
+  constructor(private location: Location,
+              private searchService: SearchService) {
+  }
 
-  ngOnInit() {
-    const { term } = history.state;
+  ngOnInit(): void {
+    const {term} = history.state;
     this.term = term;
-
+    // const {term} = this.location.getState();
     if (term) {
-      this.subs.push(
-        this.searchService.getSearchData(term).subscribe( (data: GoogleResponse) => {
-          this.results = data;
-        })
-      )
+      this.subs.push(this.searchService.getSearchData(term).subscribe((data: GoogleResponse) => {
+        this.results = data;
+      }));
     }
   }
 
-  ngOnDestroy() {
-    this.subs.map(s => s.unsubscribe());
-  }
 
+  search(form: NgForm): void {
+    const {search_term} = form.value;
+    this.term = search_term;
+    this.subs.push(this.searchService.getSearchData(this.term).subscribe((data: GoogleResponse) => {
+      this.results = data;
+    }));
+  }
 }

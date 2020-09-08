@@ -1,1 +1,72 @@
-<p>results works!</p>
+<div class="container">
+    <header class="top-header">
+        <div class="top-header__left">
+            <img alt="logo" routerLink="/"
+                src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+                style="cursor: pointer;">
+            <div class="top-header__left__search">
+                <div class="top-header__left__search-input">
+                    <form>
+                        <app-search rightIcon="true"></app-search>
+                    </form>
+                </div>
+
+                <div class="top-header__left__search-options">
+                    <div class="top-header__left__search-options-left">
+                        <div class="active">
+                            <mat-icon>search</mat-icon>
+                            <a href="">All</a>
+                        </div>
+
+                        <div>
+                            <mat-icon>description</mat-icon>
+                            <a href="">News</a>
+                        </div>
+
+                        <div>
+                            <mat-icon>image</mat-icon>
+                            <a href="">Images</a>
+                        </div>
+
+                        <div>
+                            <mat-icon> local_offer</mat-icon>
+                            <a href="">Shopping</a>
+                        </div>
+
+                        <div>
+                            <mat-icon>room</mat-icon>
+                            <a href="">Maps</a>
+                        </div>
+
+                        <div>
+                            <mat-icon>more_vert</mat-icon>
+                            <a href="">More</a>
+                        </div>
+                    </div>
+
+                    <div class="top-header__left__search-options-right">
+                        <a href="">Settings</a>
+                        <a href="">Tools</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-header__right">
+            <mat-icon>apps</mat-icon>
+            <button>Sign in</button>
+        </div>
+    </header>
+
+    <main class="search_results">
+        <div class="search_results_header">
+            <p>About 12156 results (0.04 second)</p>
+        </div>
+
+        <div class="search_results_body">
+            <a href="/" class="search_results_body-link">URL</a>
+            <a href="/" class="search_results_body-heading"><h2>Heading</h2></a>
+            <div class="search_results_body-details">SNIPPET</div>
+        </div>
+    </main>
+</div>
